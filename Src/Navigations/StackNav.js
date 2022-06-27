@@ -1,8 +1,12 @@
 import * as React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import HomeScreen from '../Screens/HomeScreen/HomeScreen';
-import ProfileScreen from '../Screens/ProfileScreen/ProfileScreen';
+import ProductDetails from '../Screens/ProductDetails/ProductDetails';
 import Onbording from '../Screens/onboarding/Onbording';
+import MyCart from '../Screens/MyCart/MyCart';
+import Checkout from '../Screens/Checkout/Checkout';
+import Filters from '../Screens/Filters/Filters';
+
 const Stack = createNativeStackNavigator();
 
 const StackNav = () => {
@@ -11,7 +15,10 @@ const StackNav = () => {
         <Stack.Navigator initialRouteName='HomeScreen' screenOptions={{headerShown:false}}>
             {/* <Stack.Screen name="Onbording" component={Onbording} /> */}
             <Stack.Screen name="HomeScreen" component={HomeScreen} />
-            <Stack.Screen name="ProfileScreen" component={ProfileScreen} />
+            <Stack.Screen name="ProductDetails" component={ProductDetails} />
+            <Stack.Screen name="MyCart" component={MyCart} />
+            <Stack.Screen name="Checkout" component={Checkout} />
+            <Stack.Screen name="Filters" component={Filters} />
         </Stack.Navigator>
     )
 }
