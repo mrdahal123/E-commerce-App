@@ -40,7 +40,7 @@ const ProductDetails = ({ navigation, route }) => {
           <Text style={Fonts.FontColor18Regular}>
             <Text style={Fonts.Color}>₹</Text>{data.price}</Text>
           <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-            <MaterialIcons name='star-rate' size={20} color={'orange'} />
+            <MaterialIcons name='star-rate' size={20} color={'Fonts.Colors.themeColor'} />
             <Text style={Fonts.FontColor14Bold}> 78.33 <Text style={Fonts.FontColor14Regular}>
               (2.6k+review)</Text></Text>
           </View>
@@ -57,7 +57,7 @@ const ProductDetails = ({ navigation, route }) => {
             keyExtractor={({ item, index }) => index}
             renderItem={({ item, index }) => {
               return (
-                <TouchableOpacity style={[styles.filterButton, { backgroundColor: selected === item.id ? "orange" : "#fff" }]}
+                <TouchableOpacity style={[styles.filterButton, { backgroundColor: selected === item.id ? "Fonts.Colors.themeColor" : "#fff" }]}
                 onPress={() => { setSelected(item.id) }}>
                 <Text style={{ color: selected === item.id ? "#fff" : "#000" }}>{item.Size}</Text>
             </TouchableOpacity>
@@ -117,7 +117,7 @@ const styles = StyleSheet.create({
   image: {
     width: '100%',
     height: '100%',
-    resizeMode: 'cover',
+    resizeMode: 'center',
     borderRadius:10,
   },
   filterButton: {
@@ -136,7 +136,7 @@ selectColor:{
   height:50,
   backgroundColor:'#fff',
   borderWidth:0.5,
-  borderColor:'orange',
+  borderColor:'Fonts.Colors.themeColor',
   borderRadius:20,
   margin:5,
   opacity:0.6,

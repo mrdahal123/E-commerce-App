@@ -65,7 +65,7 @@ const MyCart = ({ route, navigation }) => {
                                 <View style={styles.cartText} >
                                     <Text style={Fonts.FontColor18Bold}>Casual {"\n"}Casual & Shop</Text>
                                     <Text style={[Fonts.FontColor18BoldGray, { marginVertical: 5 }]}>Size: M </Text>
-                                    <Text style={[Fonts.FontColor18BoldGray, { marginVertical: 5 }]}><Text style={{ color: 'orange' }}>₹</Text>{item.price}</Text>
+                                    <Text style={[Fonts.FontColor18BoldGray, { marginVertical: 5 }]}><Text style={{ color: 'Fonts.Colors.themeColor' }}>₹</Text>{item.price}</Text>
                                     <View style={styles.iconContainer}>
 
                                         <View style={styles.increment}>
@@ -88,17 +88,17 @@ const MyCart = ({ route, navigation }) => {
             </View>
             <View style={styles.total}>
             <Text style={Fonts.FontColor14BoldGray}>Sub Total</Text>
-            <Text style={Fonts.FontColor16Bold}><Text style={{ color: 'orange' }}>₹</Text>258.22</Text>
+            <Text style={Fonts.FontColor16Bold}><Text style={{ color: 'Fonts.Colors.themeColor' }}>₹</Text>258.22</Text>
             </View>
             <View style={styles.total}>
             <Text style={Fonts.FontColor14BoldGray}>Sub Total</Text>
-            <Text style={Fonts.FontColor16Bold}><Text style={{ color: 'orange' }}>₹</Text>258.22</Text>
+            <Text style={Fonts.FontColor16Bold}><Text style={{ color: 'Fonts.Colors.themeColor' }}>₹</Text>258.22</Text>
             </View>
 
             <View style={styles.hr}/>
             <View style={styles.total}>
             <Text style={Fonts.FontColor14BoldGray}>Total</Text>
-            <Text style={Fonts.FontColor16Bold}><Text style={{ color: 'orange' }}>₹</Text>506.22</Text>
+            <Text style={Fonts.FontColor16Bold}><Text style={{ color: 'Fonts.Colors.themeColor' }}>₹</Text>506.22</Text>
             </View>
 
             <TouchableOpacity onPress={()=>{navigation.navigate("Checkout")}} style={styles.fullWidthButton}>

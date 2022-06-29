@@ -11,13 +11,22 @@ export const Fonts = {
         fontSize: 14,
         fontFamily: 'Tangerine-Regular',
     },
-    FontColor14Regular: {
+    FontColor16Regular: {
         color: '#696969',
-        fontSize: 14,
+        fontSize: 16,
+    },
+    FontColor18RegularGray: {
+        color: '#a5a5a5',
+        fontSize: 20,
     },
     FontColor18Bold: {
         color: '#000',
         fontSize: 18,
+        fontWeight:'bold'
+    },
+    FontColor24Bold: {
+        color: '#000',
+        fontSize: 30,
         fontWeight:'bold'
     },
     FontColor18BoldGray: {
@@ -89,7 +98,15 @@ export const Fonts = {
         color:'#000',
     },
     Color:{
-        color:'orange',
+        color:'Fonts.Colors.themeColor',
         fontSize:18,
+    },
+
+    colors:{
+        lightGray:"#EBEBEB",
+        themeColor:"#FF710A",
+        mediumGray:'#a5a5a5',
+        gray:'#959595',
+        lightFonts:'#ffedcc'
     }
 }

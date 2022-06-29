@@ -24,11 +24,7 @@ const HomeScreen = ({ navigation }) => {
                 price: " 178.99",
                 image: require('../../../assets/images/IMAGE1.webp')
             },
-            {
-                title: 'Mini Dress',
-                price: " 178.99",
-                image: require('../../../assets/images/IMAGE5.png')
-            },
+           
             {
                 title: 'Party Wear',
                 price: " 178.99",
@@ -39,11 +35,7 @@ const HomeScreen = ({ navigation }) => {
                 price: " 178.99",
                 image: require('../../../assets/images/IMAGE1.webp')
             },
-            {
-                title: ' Ballgown',
-                price: " 178.99",
-                image: require('../../../assets/images/IMAGE5.png')
-            },
+           
             {
                 title: ' Ballgown',
                 price: " 178.99",
@@ -58,10 +50,12 @@ const HomeScreen = ({ navigation }) => {
             <ScrollView showsVerticalScrollIndicator={false} nestedScrollEnabled={true}>
                 <View style={styles.header}>
                     <Ionicons name='ios-menu-outline' size={30} />
-                    <Text style={Fonts.blackColor50Bold}>Prilyn</Text>
+                    
                     <View style={styles.headerIcon}>
                         <Ionicons name='search' size={30} />
-                        <MaterialCommunityIcons name='briefcase-outline' size={30} />
+                        <MaterialCommunityIcons name='briefcase-outline' onPress={()=>{
+                            navigation.navigate('Personalization')
+                        }} size={30} />
                     </View>
                 </View>
 
@@ -96,7 +90,7 @@ const HomeScreen = ({ navigation }) => {
                                     <Image source={item.image} style={{ width: 300, height: 300, resizeMode: 'contain' }} />
                                     <Text style={[Fonts.blackColor30Regular, { textAlign: 'center', marginTop: 10 }]}>{item.title}</Text>
                                     <Text style={[Fonts.textCenter, { marginVertical: 5 }]}>
-                                        <Text style={{ color: 'orange' }}>₹</Text>{item.price}</Text>
+                                        <Text style={{ color: 'Fonts.Colors.themeColor' }}>₹</Text>{item.price}</Text>
                                 </TouchableOpacity>
                             )
                         }}
@@ -108,7 +102,7 @@ const HomeScreen = ({ navigation }) => {
                     <TouchableOpacity><Text style={Fonts.Color}>See All</Text></TouchableOpacity>
                 </View>
 
-                <View>
+                <View style={{width:'100%',paddingBottom:10}}>
                     <FlatList
                         
                         showsHorizontalScrollIndicator={false}
@@ -126,7 +120,7 @@ const HomeScreen = ({ navigation }) => {
                                     <Image source={item.image} style={styles.image} />
                                     <Text style={[Fonts.blackColor30Regular, { textAlign: 'center', }]}>{item.title}</Text>
                                     {/* <Text style={[Fonts.textCenter, { marginVertical: 5 }]}>
-                                        <Text style={{ color: 'orange' }}>$</Text>{item.price}</Text> */}
+                                        <Text style={{ color: 'Fonts.Colors.themeColor' }}>$</Text>{item.price}</Text> */}
                                 </TouchableOpacity>
                             )
                         }}
@@ -183,7 +177,7 @@ const styles = StyleSheet.create({
         height:200,
         width:'45%',
         marginVertical:20,
-        margin:10,
+        marginHorizontal:10,
         borderRadius:10,
         
     },

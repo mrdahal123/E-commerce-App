@@ -6,6 +6,9 @@ import Onbording from '../Screens/onboarding/Onbording';
 import MyCart from '../Screens/MyCart/MyCart';
 import Checkout from '../Screens/Checkout/Checkout';
 import Filters from '../Screens/Filters/Filters';
+import Brands from '../Screens/Brands/Brands';
+import OrderSuccess from '../Screens/OrderSuccess/OrderSuccess';
+import Personalization from '../Screens/Personalization/Personalization';
 
 const Stack = createNativeStackNavigator();
 
@@ -19,6 +22,9 @@ const StackNav = () => {
             <Stack.Screen name="MyCart" component={MyCart} />
             <Stack.Screen name="Checkout" component={Checkout} />
             <Stack.Screen name="Filters" component={Filters} />
+            <Stack.Screen name="Brands" component={Brands} />
+            <Stack.Screen name="OrderSuccess" component={OrderSuccess} />
+            <Stack.Screen name="Personalization" component={Personalization} />
         </Stack.Navigator>
     )
 }

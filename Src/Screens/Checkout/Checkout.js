@@ -43,7 +43,7 @@ const Checkout = ({ navigation }) => {
                     </View>
                     <TouchableOpacity onPress={() => { setPaymentType("Upi") }} style={[styles.circle, {
                         backgroundColor: paymentType === "Upi" ?
-                            "orange" : '#fff'
+                            Fonts.colors.themeColor : '#fff'
                     }]}>
                         {paymentType === 'Upi' ?
                             <FontAwesome5 name='check' size={20} color={'#fff'} /> : null}
@@ -59,7 +59,7 @@ const Checkout = ({ navigation }) => {
                     </View>
                     <TouchableOpacity onPress={() => { setPaymentType("Wallet") }} style={[styles.circle, {
                         backgroundColor: paymentType === "Wallet" ?
-                            "orange" : '#fff'
+                            Fonts.colors.themeColor : '#fff'
                     }]}>
                         {paymentType === 'Wallet' ?
                             <FontAwesome5 name='check' size={20} color={'#fff'} /> : null}
@@ -75,7 +75,7 @@ const Checkout = ({ navigation }) => {
                     </View>
                     <TouchableOpacity onPress={() => { setPaymentType("Card") }} style={[styles.circle, {
                         backgroundColor: paymentType === "Card" ?
-                            "orange" : '#fff'
+                            Fonts.colors.themeColor : '#fff'
                     }]}>
                         {paymentType === 'Card' ?
                             <FontAwesome5 name='check' size={20} color={'#fff'} /> : null}
@@ -96,13 +96,13 @@ const Checkout = ({ navigation }) => {
                     <View style={styles.cartText} >
                         <Text style={Fonts.FontColor14Bold}>Casual {"\n"}Casual & Shop</Text>
                         <Text style={[Fonts.FontColor14BoldGray, { marginVertical: 5 }]}>Size: M </Text>
-                        <Text style={[Fonts.FontColor14BoldGray, { marginVertical: 5 }]}><Text style={{ color: 'orange' }}>₹</Text>177.58</Text>
+                        <Text style={[Fonts.FontColor14BoldGray, { marginVertical: 5 }]}><Text style={{ color: 'Fonts.Colors.themeColor' }}>₹</Text>177.58</Text>
                     </View>
                     <Image source={require('../../../assets/images/IMAGE3.jpg')} style={styles.fullImage} />
                     <View style={styles.cartText} >
                         <Text style={Fonts.FontColor14Bold}>Casual {"\n"}Casual & Shop</Text>
                         <Text style={[Fonts.FontColor14BoldGray, { marginVertical: 5 }]}>Size: M </Text>
-                        <Text style={[Fonts.FontColor14BoldGray, { marginVertical: 5 }]}><Text style={{ color: 'orange' }}>₹</Text>177.58</Text>
+                        <Text style={[Fonts.FontColor14BoldGray, { marginVertical: 5 }]}><Text style={{ color: 'Fonts.Colors.themeColor' }}>₹</Text>177.58</Text>
                     </View>
 
                 </View>
@@ -112,7 +112,7 @@ const Checkout = ({ navigation }) => {
                 <View style={styles.total}>
                     <Text style={Fonts.FontColor18BoldGray}>Total</Text>
                     <Text style={[Fonts.FontColor18Bold, { marginVertical: 5 }]}>
-                        <Text style={{ color: 'orange' }}>₹</Text>177.58</Text>
+                        <Text style={{ color: 'Fonts.Colors.themeColor' }}>₹</Text>177.58</Text>
                 </View>
 
                 <TouchableOpacity onPress={() => { navigation.navigate("Filters") }} style={styles.fullWidthButton}>
@@ -203,13 +203,13 @@ const styles = StyleSheet.create({
         borderRadius: 100,
         alignSelf: 'flex-end',
         borderWidth: 0.8,
-        borderColor: '#e1e1e1',
+        borderColor: Fonts.colors.lightGray,
         // marginLeft: 50,
         alignItems: 'center',
         justifyContent: 'center'
     },
     selectedTintColor: {
-        color: 'orange'
+        color: 'Fonts.Colors.themeColor'
     },
     fullWidthButton: {
         width: '100%',
@@ -217,7 +217,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         backgroundColor: '#000',
-        marginVertical: 10,
+        marginVertical: 5,
         borderRadius: 10,
     }
 })
