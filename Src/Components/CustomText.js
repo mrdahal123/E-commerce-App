@@ -36,7 +36,7 @@ export const Fonts = {
     },
     FontColor14Bold: {
         color: '#000000',
-        fontSize: 14,
+        fontSize: 12,
         fontWeight:'bold'
     },
     FontColor14BoldGray: {
@@ -98,13 +98,13 @@ export const Fonts = {
         color:'#000',
     },
     Color:{
-        color:'Fonts.Colors.themeColor',
+        color:'#ff8d3b',
         fontSize:18,
     },
 
     colors:{
         lightGray:"#EBEBEB",
-        themeColor:"#FF710A",
+        themeColor:"#ff8d3b",
         mediumGray:'#a5a5a5',
         gray:'#959595',
         lightFonts:'#ffedcc'

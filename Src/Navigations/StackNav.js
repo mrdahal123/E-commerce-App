@@ -9,14 +9,18 @@ import Filters from '../Screens/Filters/Filters';
 import Brands from '../Screens/Brands/Brands';
 import OrderSuccess from '../Screens/OrderSuccess/OrderSuccess';
 import Personalization from '../Screens/Personalization/Personalization';
+import TabNav from './TabNav';
+import Signin from '../Screens/Auth/Signin';
+import SignUp from '../Screens/Auth/SignUp';
 
 const Stack = createNativeStackNavigator();
 
 const StackNav = () => {
     return (
 
-        <Stack.Navigator initialRouteName='HomeScreen' screenOptions={{headerShown:false}}>
+        <Stack.Navigator initialRouteName='TabNav' screenOptions={{headerShown:false}}>
             {/* <Stack.Screen name="Onbording" component={Onbording} /> */}
+            <Stack.Screen name="TabNav" component={TabNav} />
             <Stack.Screen name="HomeScreen" component={HomeScreen} />
             <Stack.Screen name="ProductDetails" component={ProductDetails} />
             <Stack.Screen name="MyCart" component={MyCart} />
@@ -25,6 +29,8 @@ const StackNav = () => {
             <Stack.Screen name="Brands" component={Brands} />
             <Stack.Screen name="OrderSuccess" component={OrderSuccess} />
             <Stack.Screen name="Personalization" component={Personalization} />
+            <Stack.Screen name="Signin" component={Signin} />
+            <Stack.Screen name="SignUp" component={SignUp} />
         </Stack.Navigator>
     )
 }

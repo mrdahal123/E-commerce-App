@@ -115,8 +115,8 @@ const Checkout = ({ navigation }) => {
                         <Text style={{ color: 'Fonts.Colors.themeColor' }}>₹</Text>177.58</Text>
                 </View>
 
-                <TouchableOpacity onPress={() => { navigation.navigate("Filters") }} style={styles.fullWidthButton}>
-                    <Text style={[Fonts.FontColor16Bold, { color: "#fff" }]}>Checkout</Text>
+                <TouchableOpacity onPress={() => { navigation.navigate("OrderSuccess") }} style={styles.fullWidthButton}>
+                    <Text style={[Fonts.FontColor16Bold, { color: "#fff" }]}>Paynow</Text>
                 </TouchableOpacity>
             </ScrollView>
         </SafeAreaView>

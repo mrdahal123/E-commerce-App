@@ -50,7 +50,7 @@ const HomeScreen = ({ navigation }) => {
             <ScrollView showsVerticalScrollIndicator={false} nestedScrollEnabled={true}>
                 <View style={styles.header}>
                     <Ionicons name='ios-menu-outline' size={30} />
-                    
+                    <Text style={Fonts.blackColor50Bold}>Prilyn</Text>
                     <View style={styles.headerIcon}>
                         <Ionicons name='search' size={30} />
                         <MaterialCommunityIcons name='briefcase-outline' onPress={()=>{

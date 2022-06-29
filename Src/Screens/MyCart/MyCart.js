@@ -101,7 +101,7 @@ const MyCart = ({ route, navigation }) => {
             <Text style={Fonts.FontColor16Bold}><Text style={{ color: 'Fonts.Colors.themeColor' }}>₹</Text>506.22</Text>
             </View>
 
-            <TouchableOpacity onPress={()=>{navigation.navigate("Checkout")}} style={styles.fullWidthButton}>
+            <TouchableOpacity onPress={()=>{navigation.navigate("Signin")}} style={styles.fullWidthButton}>
             <Text style={[Fonts.FontColor16Bold,{ color:"#fff"}]}>Checkout</Text>
             </TouchableOpacity>
             {/* </ScrollView> */}

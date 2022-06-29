@@ -5,9 +5,8 @@ import Ionicons from 'react-native-vector-icons/Ionicons'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
 const Brands = ({ navigation }) => {
-    const [brands, setBrands] = useState([])
-    const [Apply, setApply] = useState('')
-    const Brands = [
+    const [selected,setSelected] = useState
+    const [brands, setBrands] = useState( [
         { id: '1', isSelected: false, name: 'FLENDI' },
         { id: '2', isSelected: false, name: 'HOUSE OF VERSACE' },
         { id: '3', isSelected: false, name: 'BURBERRY' },
@@ -22,13 +21,48 @@ const Brands = ({ navigation }) => {
         { id: '12', isSelected: false, name: 'MONTI KARLO' },
         { id: '13', isSelected: false, name: 'WOODLAND' },
         { id: '14', isSelected: false, name: 'JOCKEY' },
-    ]
+    ])
+    const [Apply, setApply] = useState('')
+
     // let multiSelectValue = brands.map(element => {
     //     return {
     //         ...element,
     //         isSelected: false
     //       }
     // })
+    
+    const mapdata =(item,index) => {
+
+        let newState = [...brands];
+        let selectedBrand = []
+
+        newState[index].isSelected = !newState[index].isSelected
+
+        setBrands(newState)
+        brands.forEach(element => {
+            newState.forEach(data=>{
+                if(element.id==data.id && data.isSelected==true){
+                    selectedBrand.push(element)
+                }
+                else
+                {
+                    return
+                }
+            })
+        })
+        // newState.map(element => {
+
+        //     if (item.isSelected==element.) {
+        //         newState[index].isSelected = false;
+        //         setBrands(newState);
+    
+        //     } else {
+        //         newState[index].isSelected = true;
+        //         setBrands(newState);
+        //     }
+        // })
+
+    }
     return (
         <SafeAreaView style={styles.container}>
             {/* <ScrollView showsVerticalScrollIndicator={false}> */}
@@ -56,20 +90,10 @@ const Brands = ({ navigation }) => {
                             <View style={styles.boxContainer}>
                                 <Text>{item.name}</Text>
                                 <TouchableOpacity onPress={() => {
-                                    setBrands(item.name)
-                                    // let newState = [...brands];
-
-                                    // if (item.isSelected) {
-                                    //     newState[index].isSelected = false;
-                                    //     setBrands(newState);
-
-                                    // } else {
-                                    //     newState[index].isSelected = true;
-                                    //     setBrands(newState);
-                                    // }
+                                    
                                 }} style={[styles.filterButton, { backgroundColor: brands.length > 0 ? Fonts.colors.themeColor : null }]}>
 
-                                    {item.brands!==''?
+                                    {item.isSelected==true ?
                                         <FontAwesome5 name='check' size={20} color={'#fff'} /> : null}
                                 </TouchableOpacity>
                             </View>
@@ -84,7 +108,7 @@ const Brands = ({ navigation }) => {
                     <Text style={[Fonts.FontColor16Bold, { color: Apply === 'Discard' ? "#fff" : "#000" }]}>Discard</Text>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => {
-                    navigation.navigate('HomeScreen')
+                    navigation.navigate('OrderSuccess')
                     setApply('Apply')
                 }} style={[styles.halfWidthButton, { backgroundColor: Apply === 'Apply' ? "#000" : null }]}>
                     <Text style={[Fonts.FontColor16Bold, { color: Apply === "Apply" ? "#fff" : "#000" }]}>Apply</Text>
