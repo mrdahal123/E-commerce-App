@@ -9,6 +9,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons'
 import AntDesign from 'react-native-vector-icons/AntDesign'
 import Entypo from 'react-native-vector-icons/Entypo'
 import { Fonts } from '../../Components/CustomText'
+import { styles } from './Personalization.styles'
 
 const Personalization = ({ navigation }) => {
     return (
@@ -104,51 +105,51 @@ const Personalization = ({ navigation }) => {
 
 export default Personalization
 
-const styles = StyleSheet.create({
-    container: {
-        backgroundColor: '#fff',
-        flex: 1,
-        padding: 15,
-    },
-    header: {
-        width: '100%',
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-    },
-    card: {
-        width: '99%',
-        padding: 10,
-        marginVertical: 20,
-        backgroundColor: '#fff',
-        shadowColor: "#000",
-        shadowOffset: {
-            width: 0,
-            height: 2,
-        },
-        shadowOpacity: 0.25,
-        shadowRadius: 3.84,
-        elevation: 5,
-        borderRadius: 8,
-        marginBottom: 5,
-        alignSelf: 'center'
+// const styles = StyleSheet.create({
+//     container: {
+//         backgroundColor: '#fff',
+//         flex: 1,
+//         padding: 15,
+//     },
+//     header: {
+//         width: '100%',
+//         flexDirection: 'row',
+//         justifyContent: 'space-between',
+//         alignItems: 'center',
+//     },
+//     card: {
+//         width: '99%',
+//         padding: 10,
+//         marginVertical: 20,
+//         backgroundColor: '#fff',
+//         shadowColor: "#000",
+//         shadowOffset: {
+//             width: 0,
+//             height: 2,
+//         },
+//         shadowOpacity: 0.25,
+//         shadowRadius: 3.84,
+//         elevation: 5,
+//         borderRadius: 8,
+//         marginBottom: 5,
+//         alignSelf: 'center'
 
-    },
-    total: {
-        width: '100%',
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        paddingVertical: 15,
+//     },
+//     total: {
+//         width: '100%',
+//         flexDirection: 'row',
+//         justifyContent: 'space-between',
+//         paddingVertical: 15,
       
-    },
-    fullWidthButton: {
-        width: '100%',
-        padding: 20,
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: '#000',
-        marginVertical: 5,
-        borderRadius: 10,
-        flexDirection:'row'
-    }
-})
+//     },
+//     fullWidthButton: {
+//         width: '100%',
+//         padding: 20,
+//         alignItems: 'center',
+//         justifyContent: 'center',
+//         backgroundColor: '#000',
+//         marginVertical: 5,
+//         borderRadius: 10,
+//         flexDirection:'row'
+//     }
+// })

@@ -5,9 +5,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
 const Brands = ({ navigation }) => {
-    const [brands, setBrands] = useState([])
-    const [Apply, setApply] = useState('')
-    const Brands = [
+    const [ProductBrands, setProductBrands] = useState([
         { id: '1', isSelected: false, name: 'FLENDI' },
         { id: '2', isSelected: false, name: 'HOUSE OF VERSACE' },
         { id: '3', isSelected: false, name: 'BURBERRY' },
@@ -22,13 +20,27 @@ const Brands = ({ navigation }) => {
         { id: '12', isSelected: false, name: 'MONTI KARLO' },
         { id: '13', isSelected: false, name: 'WOODLAND' },
         { id: '14', isSelected: false, name: 'JOCKEY' },
-    ]
-    // let multiSelectValue = brands.map(element => {
-    //     return {
-    //         ...element,
-    //         isSelected: false
-    //       }
-    // })
+    ])
+    const [SelectedBrans, setSelectedBrans] = useState([''])
+    const [Apply, setApply] = useState('')
+    // const Brands = 
+    const multipleCheckBox = (item, index) => {
+        const newData = [...ProductBrands]
+        let selectedArr = [];
+        newData[index].isSelected = !newData[index].isSelected;
+        console.log("Changed newData", newData);
+        setProductBrands(newData);
+        ProductBrands.forEach((element) => {
+            newData.forEach((data) => {
+                if (element.id == data.id && data.isSelected == true) {
+                    selectedArr.push(data)
+                    setSelectedBrans(selectedArr)
+                }
+            })
+        })
+        console.log('selectedArr', SelectedBrans);
+
+    }
     return (
         <SafeAreaView style={styles.container}>
             {/* <ScrollView showsVerticalScrollIndicator={false}> */}
@@ -48,35 +60,25 @@ const Brands = ({ navigation }) => {
             <View >
                 <FlatList
                     showsVerticalScrollIndicator={false}
-                    data={Brands}
-                    style={{ height: '78%' }}
+                    data={ProductBrands}
+                    style={{ height: '76%' }}
                     keyExtractor={({ item, index }) => item}
                     renderItem={({ item, index }) => {
                         return (
                             <View style={styles.boxContainer}>
                                 <Text>{item.name}</Text>
                                 <TouchableOpacity onPress={() => {
-                                    setBrands(item.name)
-                                    // let newState = [...brands];
+                                    multipleCheckBox(item, index)
+                                }} style={[styles.filterButton, { backgroundColor: item.isSelected ? Fonts.colors.themeColor : null }]}>
 
-                                    // if (item.isSelected) {
-                                    //     newState[index].isSelected = false;
-                                    //     setBrands(newState);
-
-                                    // } else {
-                                    //     newState[index].isSelected = true;
-                                    //     setBrands(newState);
-                                    // }
-                                }} style={[styles.filterButton, { backgroundColor: brands.length > 0 ? Fonts.colors.themeColor : null }]}>
-
-                                    {item.brands!==''?
+                                    {item.isSelected == true ?
                                         <FontAwesome5 name='check' size={20} color={'#fff'} /> : null}
                                 </TouchableOpacity>
                             </View>
                         )
                     }} />
 
-                
+
             </View>
 
             <View style={styles.boxContainer}>

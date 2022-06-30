@@ -4,6 +4,7 @@ import { Fonts } from '../../Components/CustomText'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 import Feather from 'react-native-vector-icons/Feather'
+import { styles } from './OrderSuccess.styles'
 
 const OrderSuccess = ({ navigation }) => {
     return (
@@ -39,43 +40,43 @@ const OrderSuccess = ({ navigation }) => {
 
 export default OrderSuccess
 
-const styles = StyleSheet.create({
-    container: {
-        backgroundColor: '#fff',
-        flex: 1,
-        padding: 15,
+// const styles = StyleSheet.create({
+//     container: {
+//         backgroundColor: '#fff',
+//         flex: 1,
+//         padding: 15,
 
-    },
-    header: {
-        width: '100%',
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-    },
-    circle: {
-        width: 200,
-        height: 200,
-        justifyContent: 'center',
-        alignItems: 'center',
-        alignSelf: 'center',
-        borderWidth: 8,
-        borderColor: Fonts.colors.themeColor,
-        borderRadius: 100,
-        // position:'absolute',
-        // top:'30%',
-    },
-    orderarea: {
-        marginTop: '30%'
-    },
-    fullWidthButton: {
-        width: '100%',
-        padding: 20,
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: '#000',
-        bottom: 10,
-        position: 'absolute',
-        borderRadius: 10,
-        alignSelf: 'center'
-    }
-})
+//     },
+//     header: {
+//         width: '100%',
+//         flexDirection: 'row',
+//         justifyContent: 'space-between',
+//         alignItems: 'center',
+//     },
+//     circle: {
+//         width: 200,
+//         height: 200,
+//         justifyContent: 'center',
+//         alignItems: 'center',
+//         alignSelf: 'center',
+//         borderWidth: 8,
+//         borderColor: Fonts.colors.themeColor,
+//         borderRadius: 100,
+//         // position:'absolute',
+//         // top:'30%',
+//     },
+//     orderarea: {
+//         marginTop: '30%'
+//     },
+//     fullWidthButton: {
+//         width: '100%',
+//         padding: 20,
+//         alignItems: 'center',
+//         justifyContent: 'center',
+//         backgroundColor: '#000',
+//         bottom: 10,
+//         position: 'absolute',
+//         borderRadius: 10,
+//         alignSelf: 'center'
+//     }
+// })

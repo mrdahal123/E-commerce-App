@@ -97,6 +97,11 @@ export const Fonts = {
         fontSize:26,
         color:'#000',
     },
+    textCenterGray2:{
+        textAlign:'center',
+        fontSize:18,
+        color:'#a5a5a5',
+    },
     Color:{
         color:'#ff8d3b',
         fontSize:18,
