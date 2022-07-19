@@ -31,7 +31,7 @@ const OrderSuccess = ({ navigation }) => {
                     address, thanks for the order .
                 </Text>
             </View>
-            <TouchableOpacity onPress={() => { navigation.navigate('HomeScreen') }} style={styles.fullWidthButton}>
+            <TouchableOpacity onPress={() => { navigation.navigate('TabNav') }} style={styles.fullWidthButton}>
                 <Text style={[Fonts.FontColor16Bold, { color: "#fff" }]}>Back To Home</Text>
             </TouchableOpacity>
         </SafeAreaView>

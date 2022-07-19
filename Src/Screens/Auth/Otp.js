@@ -1,155 +1,182 @@
-// import React, { Component, useState } from 'react'
-// import {
-//     SafeAreaView,
-//     StatusBar,
-//     View,
-//     Text,
-//     StyleSheet,
-//     Image,
-//     TouchableOpacity,
-// } from 'react-native'
-// import AntDesign from 'react-native-vector-icons/AntDesign'
-// import SmoothPinCodeInput from 'react-native-smooth-pincode-input';
-// import { Fonts } from '../../Components/CustomText';
 
-// const Otp = ({ navigation }) => {
-//     const [Otp, setOTP] = useState('')
+import React, { useState } from 'react'
+import { StyleSheet, Text, View, SafeAreaView, ScrollView, TextInput, Image, TouchableOpacity } from 'react-native'
+import { Fonts } from '../../Components/CustomText'
+import Feather from 'react-native-vector-icons/Feather'
+import Ionicons from 'react-native-vector-icons/Ionicons'
 
 
-//     const moveTo = () => {
-//         if (Otp.length == 4) {
-//             navigation.navigate('HomeScreen');
-//             // setTimeout(() => {
-//             //     navigation.navigate('HomeScreen');
-//             // }, 1000)
-//         }
-//         else {
-//             alert("Please enter All Value")
-//         }
-//     }
+const Otp = ({ navigation }) => {
+    const [firstDigit, setFirstDigit] = useState('')
+    const [secondDigit, setSecondDigit] = useState('')
+    const [thirdDigit, setThirdDigit] = useState('')
+    const [forthDigit, setForthDigit] = useState('')
 
-//     return (
-//         <SafeAreaView style={{ flex: 1, backgroundColor: Colors.whiteColor }}>
+    const otpValidation = () => {
+        if (firstDigit == '') {
+            alert("enter first number")
+        }
+        else if (secondDigit == '') {
+            alert("enter second number")
+        }
+        else if (thirdDigit == '') {
+            alert("enter third number")
+        }
+        else if (forthDigit == '') {
+            alert("enter fourth number")
+        }
+    }
 
-//             <Ionicons name='arrow-back-outline' size={30} onPress={() => { navigation.goBack() }} />
-//             <Image source={require('../../../assets/images/logo.jpg')} style={styles.logo} />
+    const moveTo = () => {
+        if (setForthDigit !== '') {
+            setTimeout(() => {
+                navigation.navigate('Checkout');
+            }, 1000)
+        }
+    }
+    return (
+        <SafeAreaView style={styles.container}>
+            <Ionicons name='arrow-back-outline' size={30} onPress={() => {navigation.goBack() }} />
+            <Image source={require('../../../assets/images/logo.jpg')} style={styles.logo} />
+
+            <Text style={[Fonts.FontColor18RegularGray,{textAlign:'center',marginTop:50}]}>Enter the OTP code from the{'\n'}
+                phone we just send you</Text>
+
+            <View style={styles.inputContainer}>
+
+                <TextInput
+                    maxLength={1}
+                    selectionColor={Fonts.colors.themeColor
+                    }
+                    value={firstDigit}
+                    style={styles.textInput}
+                    onChangeText={(num) => {
+                        setFirstDigit(num)
+                        secondTextInput.focus();
+                    }}
+                    keyboardType="numeric"
+                />
+
+                <TextInput
+                    maxLength={1}
+                    selectionColor={Fonts.colors.themeColor
+                    }
+                    value={secondDigit}
+                    style={styles.textInput}
+                    ref={(input) => { secondTextInput = input; }}
+                    onChangeText={(text) => {
+                        setSecondDigit(text)
+                        thirdTextinput.focus();
+                    }}
+                    keyboardType="numeric"
+
+                />
+
+                <TextInput
+                    maxLength={1}
+                    selectionColor={Fonts.colors.themeColor
+                    }
+                    value={thirdDigit}
+                    style={styles.textInput}
+                    ref={(input) => { thirdTextinput = input; }}
+                    onChangeText={(text) => {
+                        setThirdDigit(text)
+                        fourthTextinput.focus();
+                    }}
+                    keyboardType="numeric"
+
+                />
+
+                <TextInput
+                    maxLength={1}
+                    selectionColor={Fonts.colors.themeColor
+                    }
+                    value={forthDigit}
+                    style={styles.textInput}
+                    ref={(input) => { fourthTextinput = input; }}
+                    onChangeText={(text) => {
+                        setForthDigit(text)
+                        moveTo()
+                    }}
+                    keyboardType="numeric"
 
 
+                />
+            </View>
+          <View style={{width:'100%',flexDirection:'row',alignSelf:'center',alignItems:'center',justifyContent:'center',marginVertical:20}}>
+          <Text style={[Fonts.FontColor16Bold, { textAlign: 'center',}]}>Didn't receive the OTP code! </Text>
+          <TouchableOpacity onPress={() => {navigation.navigate('Signin') }}><Text style={Fonts.FontColor18Bold}>Resend</Text></TouchableOpacity>
+          </View>
 
-//             <Text style={{
-              
-//                 textAlign: 'center',
-//                 lineHeight: 25
-//                 // ...Fonts.blackColor18Bold,
-//                 // textAlign: 'center',
-
-//             }}>
-//                 Enter The OTP Code From The Phone {'\n'}We Just Send You!
-//             </Text>
-
-//             <View style={styles.inputContainer}>
-//                 <SmoothPinCodeInput
-//                     placeholder=""
-//                     editable={true}
-//                     autoFocus={true}
-//                     cellStyle={{
-//                         borderRadius: 8,
-//                         borderWidth: 2,
-//                         borderColor: '#fff',
-//                         backgroundColor: '#fff',
-//                         shadowColor: '#F87B2C',
-//                         shadowOffset: {
-//                             width: 0,
-//                             height: 2,
-//                         },
-//                         shadowOpacity: 1.25,
-//                         shadowRadius: 8.84,
-
-//                         elevation: 8,
-//                     }}
-//                     cellStyleFocused={{
-//                         borderColor:Fonts.colors.themeColor,
-//                     }}
-//                     cellSpacing={15}
-//                     codeLength={4}
-//                     value={Otp}
-//                     onTextChange={(txt) => setOTP(txt)}
-//                     textStyle={{ color: Fonts.colors.themeColor, fontSize: 24 }}
-//                 />
-//             </View>
-
-//             <View style={styles.butoonContainer}>
-//                 <View style={{ flexDirection: 'column' }}>
-//                     <Text>Didn’t receive the otp code! </Text>
-//                     <TouchableOpacity onPress={() => {
-//                         navigation.navigate('LoginScreen');
-//                     }}><Text style={{
-//                     fontSize:Fonts.FontColor18Bold
-//                     }}>Resend</Text></TouchableOpacity>
-//                 </View>
-//                 <LinearGradient
-//                     colors={['#F9B551', '#F87B2C']}
-//                     style={styles.continueButtonStyle}>
-//                     <TouchableOpacity
-//                         onPress={() => { moveTo() }}>
-//                         <Text style={{ fontSize:Fonts.FontColor16Bold, textAlign: 'center' }}>Continue</Text>
-//                     </TouchableOpacity>
-//                 </LinearGradient>
-//             </View>
-//         </SafeAreaView>
-//     )
-// }
-
-// const styles = StyleSheet.create({
-
-
-//     continueButtonStyle: {
-//         paddingHorizontal: 20,
-//         paddingVertical: 12,
-//         backgroundColor: Colors.primaryColor,
-//         minWidth: '30%',
-//         alignSelf: "flex-end",
-//         borderRadius: 25,
-//     },
-//     appLogoStyle: {
-//         width: 180.0,
-//         height: 180.0,
-//         justifyContent: 'center',
-//         resizeMode: 'contain',
-//         position: 'relative',
-//         alignSelf: 'center'
-//     },
-//     inputContainer: {
-//         width: '90%',
-//         marginVertical: 50,
-//         justifyContent: 'space-around',
-//         alignSelf: 'center',
-//         alignItems: 'center'
-//     },
-//     butoonContainer: {
-//         flexDirection: 'row',
-//         alignItems: 'center',
-//         width: '90%',
-//         alignSelf: 'center',
-//         marginTop: 20,
-//         justifyContent: 'space-between'
-//     },
-
-// })
-
-// export default Otp
-
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
-
-const Otp = () => {
-  return (
-    <View>
-      <Text>Otp</Text>
-    </View>
-  )
+            <View style={styles.btnContainer}>
+                <TouchableOpacity onPress={() => {
+                    otpValidation()
+                }} style={[styles.halfWidthButton,]}>
+                    <Text style={[Fonts.FontColor16Bold, { color: "#fff" }]}>Continue</Text>
+                </TouchableOpacity>
+            </View>
+        </SafeAreaView>
+    )
 }
 
 export default Otp
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        padding: 15,
+        backgroundColor: '#fff',
+    },
+    logo: {
+        width: 300,
+        height: 100,
+        resizeMode: 'contain',
+        justifyContent: 'center',
+        alignItems: 'center',
+        alignSelf: 'center',
+        marginTop: 40,
+    },
+
+    inputContainer: {
+        width: '90%',
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+        alignSelf: 'center',
+        alignItems: 'center'
+    },
+    textInput: {
+        backgroundColor: "#fff",
+        marginTop: 50,
+        padding: 15,
+        width: '20%',
+        justifyContent: 'center',
+        textAlign: 'center',
+        borderRadius: 25,
+        shadowColor: Fonts.colors.themeColor,
+        shadowOffset: {
+            width: 0,
+            height: 5,
+        },
+        shadowOpacity: 0.34,
+        shadowRadius: 6.27,
+        elevation: 10,
+    },
+    btnContainer: {
+        width: '100%',
+        alignSelf: 'center',
+        marginVertical: 10,
+    },
+    halfWidthButton: {
+        width: '100%',
+        padding: 15,
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: '#000',
+        borderRadius: 15,
+        borderWidth: 1
+    },
+    containerView: {
+        width: '100%',
+        marginTop: 50
+    }
+})

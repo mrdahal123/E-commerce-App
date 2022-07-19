@@ -32,7 +32,7 @@ const StackNav = () => {
             <Stack.Screen name="Personalization" component={Personalization} />
             <Stack.Screen name="Signin" component={Signin} />
             <Stack.Screen name="SignUp" component={SignUp} />
-            {/* <Stack.Screen name="Otp" component={Otp} /> */}
+            <Stack.Screen name="Otp" component={Otp} />
         </Stack.Navigator>
     )
 }

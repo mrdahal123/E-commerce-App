@@ -4,6 +4,7 @@ import { Fonts } from '../../Components/CustomText'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import { styles } from './Home.style'
+import { SliderBox } from "react-native-image-slider-box";
 // import Carousel from 'react-native-snap-carousel';
 const HomeScreen = ({ navigation }) => {
 
@@ -88,7 +89,7 @@ const HomeScreen = ({ navigation }) => {
                         renderItem={({ item, index }) => {
                             return (
                                 <TouchableOpacity>
-                                    <Image source={item.image} style={{ width: 300, height: 300, resizeMode: 'contain' }} />
+                                    <Image source={item.image} style={{ width: 250, height: 300, resizeMode: 'cover',marginHorizontal:5 }} />
                                     <Text style={[Fonts.blackColor30Regular, { textAlign: 'center', marginTop: 10 }]}>{item.title}</Text>
                                     <Text style={[Fonts.textCenter, { marginVertical: 5 }]}>
                                         <Text style={{ color: 'Fonts.Colors.themeColor' }}>₹</Text>{item.price}</Text>

@@ -8,7 +8,7 @@ const SignUp = ({ navigation }) => {
     const [number, setNumber] = useState('')
     const validate = () => {
         if (number !== '') {
-            navigation.navigate('Checkout')
+          navigation.navigate('Otp')
         }
         else {
             alert("please enter your number ")
@@ -32,7 +32,9 @@ const SignUp = ({ navigation }) => {
                 </View>
 
                 <View style={styles.btnContainer}>
-                    <TouchableOpacity onPress={() => { navigation.navigate('Otp')}} style={[styles.halfWidthButton,]}>
+                    <TouchableOpacity onPress={() => { 
+                      validate()
+                      }} style={[styles.halfWidthButton,]}>
                         <Text style={[Fonts.FontColor16Bold, { color: "#fff" }]}>Continue</Text>
                     </TouchableOpacity>
                 </View>
