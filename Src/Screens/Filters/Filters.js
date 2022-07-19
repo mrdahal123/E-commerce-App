@@ -147,7 +147,9 @@ const Filters = ({ navigation }) => {
                     <TouchableOpacity onPress={()=>{setApply('Discard')}} style={[styles.halfWidthButton, { backgroundColor: Apply==='Discard' ? "#000" :null }]}>
                         <Text style={[Fonts.FontColor16Bold, { color: Apply==='Discard' ? "#fff":"#000" }]}>Discard</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity onPress={()=>{setApply('Apply')}} style={[styles.halfWidthButton, { backgroundColor: Apply==='Apply' ? "#000" :null }]}>
+                    <TouchableOpacity onPress={()=>{
+                        setApply('Apply'),
+                        navigation.navigate('HomeScreen')}} style={[styles.halfWidthButton, { backgroundColor: Apply==='Apply' ? "#000" :null }]}>
                         <Text style={[Fonts.FontColor16Bold, { color:Apply==="Apply"? "#fff":"#000" }]}>Apply</Text>
                     </TouchableOpacity>
                 </View>

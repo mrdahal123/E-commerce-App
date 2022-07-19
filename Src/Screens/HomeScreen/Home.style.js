@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native"
 
- export const  styles = StyleSheet.create({
+export const styles = StyleSheet.create({
     container: {
         backgroundColor: '#fff',
         flex: 1,
@@ -30,28 +30,41 @@ import { StyleSheet } from "react-native"
         marginHorizontal: 5,
         borderWidth: 1,
     },
-    // carouselContainer: {
-    //     width: '100%',
-    //     padding: 10,
-    //     position: 'absolute',
-    //     alignSelf: 'center',
-    //     top: '25%',
-    // },
+    carousel: {
+        height: 200,
+        width: '90%',
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderRadius: 3,
+        zIndex: 1,
+        marginHorizontal: 10,
+        alignSelf: 'center',
+        marginVertical: 15,
+        borderRadius: 10
+    },
     carouselContainer: {
         marginVertical: 20,
         alignSelf: 'center'
     },
-    imageContainer:{
-        height:200,
-        width:'45%',
-        marginVertical:20,
-        marginHorizontal:10,
-        borderRadius:10,
-        
+    imgCardContainer: {
+        width: 250,
+        height: 300,
+        resizeMode: 'cover',
+        marginHorizontal: 5
     },
-    image:{
-    width: '100%',
-    height: '100%',
-    resizeMode: 'contain',    
- }
+    image: {
+        width: 100,
+        height: 100,
+        borderRadius: 10,
+        resizeMode: 'cover',
+        margin: 10,
+    },
+    wardopContainer: {
+        width: '100%',
+        paddingVertical: 10,
+        flexDirection: 'row',
+        alignSelf:'center',
+        alignItems:'center',
+        justifyContent: 'space-between',
+    }
 })

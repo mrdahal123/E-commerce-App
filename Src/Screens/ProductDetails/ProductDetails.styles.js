@@ -46,10 +46,12 @@ const styles = StyleSheet.create({
     height: 50,
     backgroundColor: '#fff',
     borderWidth: 0.5,
-    borderColor: 'Fonts.Colors.themeColor',
-    borderRadius: 20,
+    borderColor: Fonts.colors.themeColor,
+    borderRadius: 100,
     margin: 5,
-    opacity: 0.6,
+    opacity: 1,
+    justifyContent:'center',
+    alignItems:'center'
   },
   fullWidthButton: {
     width: '100%',

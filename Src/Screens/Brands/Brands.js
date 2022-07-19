@@ -66,7 +66,8 @@ const Brands = ({ navigation }) => {
                     renderItem={({ item, index }) => {
                         return (
                             <View style={styles.boxContainer}>
-                                <Text>{item.name}</Text>
+                                <Text style={{ color: item.isSelected ? Fonts.colors.themeColor : null }}>
+                                {item.name}</Text>
                                 <TouchableOpacity onPress={() => {
                                     multipleCheckBox(item, index)
                                 }} style={[styles.filterButton, { backgroundColor: item.isSelected ? Fonts.colors.themeColor : null }]}>
@@ -86,7 +87,7 @@ const Brands = ({ navigation }) => {
                     <Text style={[Fonts.FontColor16Bold, { color: Apply === 'Discard' ? "#fff" : "#000" }]}>Discard</Text>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => {
-                    navigation.navigate('HomeScreen')
+                    navigation.navigate('Filters')
                     setApply('Apply')
                 }} style={[styles.halfWidthButton, { backgroundColor: Apply === 'Apply' ? "#000" : null }]}>
                     <Text style={[Fonts.FontColor16Bold, { color: Apply === "Apply" ? "#fff" : "#000" }]}>Apply</Text>

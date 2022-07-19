@@ -19,34 +19,63 @@ const HomeScreen = ({ navigation }) => {
         { type: "SummerWear", id: '6' }
     ]
 
+
+    const SliderImage = [
+        // "https://source.unsplash.com/1024x768/?nature",
+        // "https://source.unsplash.com/1024x768/?water",
+        // "https://source.unsplash.com/1024x768/?girl",
+        // "https://source.unsplash.com/1024x768/?tree", // Network image
+        require('../../../assets/images/IMAGE1.webp'), // Local
+        require('../../../assets/images/IMAGE3.jpg'), // Local image
+        require('../../../assets/images/IMAGE1.webp'), // Local image
+        require('../../../assets/images/IMAGE3.jpg'), // Local image
+    ];
     const carouselItems =
         [
             {
                 title: 'Shift Dress',
                 price: " 178.99",
-                image: require('../../../assets/images/IMAGE1.webp')
+                image: require('../../../assets/images/IMAGE1.webp'),
+                catogery: 'Jeans'
             },
-           
+
             {
                 title: 'Party Wear',
                 price: " 178.99",
-                image: require('../../../assets/images/IMAGE3.jpg')
+                image: require('../../../assets/images/IMAGE3.jpg'),
+                catogery: 'Kurti & Seats'
             },
             {
                 title: 'Slip Dress',
                 price: " 178.99",
-                image: require('../../../assets/images/IMAGE1.webp')
+                image: require('../../../assets/images/IMAGE1.webp'),
+                catogery: 'T-Shirt'
             },
-           
+
             {
                 title: ' Ballgown',
                 price: " 178.99",
-                image: require('../../../assets/images/IMAGE3.jpg')
+                image: require('../../../assets/images/IMAGE3.jpg'),
+                catogery: 'Sarees'
+            },
+
+            {
+                title: 'Shift Dress',
+                price: " 178.99",
+                image: require('../../../assets/images/IMAGE1.webp'),
+                catogery: 'Lingerie'
+            },
+
+            {
+                title: 'Party Wear',
+                price: " 178.99",
+                image: require('../../../assets/images/IMAGE3.jpg'),
+                catogery: 'Top & tees'
             },
         ]
 
 
-   
+
     return (
         <SafeAreaView style={styles.container}>
             <ScrollView showsVerticalScrollIndicator={false} nestedScrollEnabled={true}>
@@ -55,7 +84,7 @@ const HomeScreen = ({ navigation }) => {
                     <Text style={Fonts.blackColor50Bold}>Prilyn</Text>
                     <View style={styles.headerIcon}>
                         <Ionicons name='search' size={30} />
-                        <MaterialCommunityIcons name='briefcase-outline' onPress={()=>{
+                        <MaterialCommunityIcons name='briefcase-outline' onPress={() => {
                             navigation.navigate('Personalization')
                         }} size={30} />
                     </View>
@@ -79,6 +108,29 @@ const HomeScreen = ({ navigation }) => {
                         }}
                     />
                 </View>
+
+                {/* Carousel */}
+                <View style={styles.carousel}>
+                    <SliderBox
+                        images={SliderImage}
+                        sliderBoxHeight={100}
+                        autoplay={true}
+                        circleLoop={true}
+                        dotColor="#FFEE58"
+                        style={styles.carouselimg}
+                        // style={{width:'100%',padding:10}}
+                        resizeMode={'contain'}
+                        inactiveDotColor="#90A4AE"
+                        dotStyle={{
+                            width: 15,
+                            height: 5,
+                            borderRadius: 2,
+                            marginHorizontal: 2,
+                            padding: 0,
+                            margin: 0,
+                        }}
+                    />
+                </View>
                 <View>
                     <FlatList
                         style={styles.carouselContainer}
@@ -88,11 +140,15 @@ const HomeScreen = ({ navigation }) => {
                         keyExtractor={({ item, index }) => index}
                         renderItem={({ item, index }) => {
                             return (
-                                <TouchableOpacity>
-                                    <Image source={item.image} style={{ width: 250, height: 300, resizeMode: 'cover',marginHorizontal:5 }} />
+                                <TouchableOpacity onPress={() => {
+                                    navigation.navigate("ProductDetails",{
+                                        data:item
+                                    })
+                                }}>
+                                    <Image source={item.image} style={{ width: 250, height: 300, resizeMode: 'cover', marginHorizontal: 5 }} />
                                     <Text style={[Fonts.blackColor30Regular, { textAlign: 'center', marginTop: 10 }]}>{item.title}</Text>
                                     <Text style={[Fonts.textCenter, { marginVertical: 5 }]}>
-                                        <Text style={{ color: 'Fonts.Colors.themeColor' }}>₹</Text>{item.price}</Text>
+                                        <Text style={{ color: Fonts.colors.themeColor }}>₹</Text>{item.price}</Text>
                                 </TouchableOpacity>
                             )
                         }}
@@ -104,25 +160,54 @@ const HomeScreen = ({ navigation }) => {
                     <TouchableOpacity><Text style={Fonts.Color}>See All</Text></TouchableOpacity>
                 </View>
 
-                <View style={{width:'100%',paddingBottom:10}}>
+                <View style={{ width: '100%', paddingBottom: 10 }}>
+
+                    <View>
+                        <FlatList
+                            style={styles.carouselContainer}
+                            showsHorizontalScrollIndicator={false}
+                            data={carouselItems}
+                            horizontal={true}
+                            keyExtractor={({ item, index }) => index}
+                            renderItem={({ item, index }) => {
+                                return (
+                                    <TouchableOpacity onPress={() => {
+                                        navigation.navigate("ProductDetails",{
+                                            data:item
+                                        })
+                                    }}>
+                                        <Image source={item.image} style={{ width: 180, height: 180, borderRadius: 10, resizeMode: 'stretch', marginHorizontal: 5 }} />
+                                        <Text style={[Fonts.textCenter, { marginVertical: 5 }]}>
+                                        <Text style={{ color: Fonts.colors.themeColor }}>₹</Text>{item.price}</Text>
+                                    </TouchableOpacity>
+                                )
+                            }}
+                        />
+                    </View>
+                </View>
+
+
+
+
+
+                <Text style={Fonts.blackColor50Bold}>Wardrobe Checklist</Text>
+                <View style={styles.wardopContainer}>
                     <FlatList
-                        
+                  
                         showsHorizontalScrollIndicator={false}
                         data={carouselItems}
-                        numColumns={2}
+                        numColumns={3}
                         keyExtractor={({ item, index }) => index}
                         renderItem={({ item, index }) => {
-                            console.log(item);
                             return (
-                                <TouchableOpacity style={styles.imageContainer} onPress={()=> {
-                                    navigation.navigate('ProductDetails',{
+                                <TouchableOpacity onPress={() => {
+                                    navigation.navigate("ProductDetails",{
                                         data:item
                                     })
                                 }}>
                                     <Image source={item.image} style={styles.image} />
-                                    <Text style={[Fonts.blackColor30Regular, { textAlign: 'center', }]}>{item.title}</Text>
-                                    {/* <Text style={[Fonts.textCenter, { marginVertical: 5 }]}>
-                                        <Text style={{ color: 'Fonts.Colors.themeColor' }}>$</Text>{item.price}</Text> */}
+                                    <Text style={{textAlign:'center'}}>
+                                    {item.catogery}</Text>
                                 </TouchableOpacity>
                             )
                         }}
@@ -132,61 +217,4 @@ const HomeScreen = ({ navigation }) => {
         </SafeAreaView>
     )
 }
-
-
-// const styles = StyleSheet.create({
-//     container: {
-//         backgroundColor: '#fff',
-//         flex: 1,
-//         padding: 15,
-
-//     },
-//     header: {
-//         width: '100%',
-//         flexDirection: 'row',
-//         justifyContent: 'space-between',
-//         alignItems: 'center',
-//         alignSelf: 'center',
-//     },
-//     headerIcon: {
-//         width: '20%',
-//         flexDirection: 'row',
-//         justifyContent: 'space-between',
-//     },
-//     filterButton: {
-//         height: 45,
-//         padding: 12,
-//         borderRadius: 8,
-//         backgroundColor: '#fff',
-//         textAlign: 'center',
-//         alignItems: 'center',
-//         justifyContent: 'center',
-//         marginHorizontal: 5,
-//         borderWidth: 1,
-//     },
-//     // carouselContainer: {
-//     //     width: '100%',
-//     //     padding: 10,
-//     //     position: 'absolute',
-//     //     alignSelf: 'center',
-//     //     top: '25%',
-//     // },
-//     carouselContainer: {
-//         marginVertical: 20,
-//         alignSelf: 'center'
-//     },
-//     imageContainer:{
-//         height:200,
-//         width:'45%',
-//         marginVertical:20,
-//         marginHorizontal:10,
-//         borderRadius:10,
-        
-//     },
-//     image:{
-//     width: '100%',
-//     height: '100%',
-//     resizeMode: 'contain',    
-//  }
-// })
 export default HomeScreen

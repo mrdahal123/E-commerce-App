@@ -4,6 +4,7 @@ import { Fonts } from '../../Components/CustomText'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 import AntDesign from 'react-native-vector-icons/AntDesign'
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
 import { styles } from './ProductDetails.styles'
 import * as Animatable from 'react-native-animatable';
 
@@ -14,6 +15,7 @@ const ProductDetails = ({ navigation, route }) => {
 
   const [selected, setSelected] = useState('')
   const [isModalVisible, setIsModalVisible] = useState(false)
+  const [color, setColor] = useState('')
 
   const sizes = [
     { id: '1', Size: 'All' },
@@ -58,7 +60,7 @@ const ProductDetails = ({ navigation, route }) => {
               // justifyContent: 'center',
             }}>
             <Animatable.View
-              animation={isModalVisible==true ? 'fadeInUpBig':'fadeOutDownBig'}
+              animation={isModalVisible == true ? 'fadeInUpBig' : 'fadeOutDownBig'}
               style={{
                 backgroundColor: '#fff',
                 padding: 20,
@@ -120,7 +122,7 @@ const ProductDetails = ({ navigation, route }) => {
             keyExtractor={({ item, index }) => index}
             renderItem={({ item, index }) => {
               return (
-                <TouchableOpacity style={[styles.filterButton, { backgroundColor: selected === item.id ? "Fonts.Colors.themeColor" : "#fff" }]}
+                <TouchableOpacity style={[styles.filterButton, { backgroundColor: selected === item.id ? Fonts.colors.themeColor : "#fff" }]}
                   onPress={() => { setSelected(item.id) }}>
                   <Text style={{ color: selected === item.id ? "#fff" : "#000" }}>{item.Size}</Text>
                 </TouchableOpacity>
@@ -132,13 +134,26 @@ const ProductDetails = ({ navigation, route }) => {
         {/* SelectColor */}
         <Text style={[Fonts.FontColor16Bold, { marginVertical: 15 }]}>Select Color</Text>
         <View style={styles.header}>
-          <TouchableOpacity style={styles.selectColor}></TouchableOpacity>
-          <TouchableOpacity style={[styles.selectColor, { backgroundColor: '#A020F0' }]}></TouchableOpacity>
-          <TouchableOpacity style={[styles.selectColor, { backgroundColor: '#87CEEB' }]}></TouchableOpacity>
-          <TouchableOpacity style={[styles.selectColor, { backgroundColor: '#FFB6C1' }]}></TouchableOpacity>
-          <TouchableOpacity style={[styles.selectColor, { backgroundColor: '#DBF3FA' }]}></TouchableOpacity>
-          <TouchableOpacity style={[styles.selectColor, { backgroundColor: '#8EA' }]}></TouchableOpacity>
-          <TouchableOpacity style={[styles.selectColor, { backgroundColor: '#87CE' }]}></TouchableOpacity>
+          <TouchableOpacity style={styles.selectColor} onPress={() => { setColor('#fff') }}>
+          {color === '#fff' ?<FontAwesome5 name='check' size={20} color={'#A020F0'}  /> : null}
+          </TouchableOpacity>
+          <TouchableOpacity style={[styles.selectColor, { backgroundColor: '#A020F0' }]} onPress={() => { setColor('#A020F0') }}>
+          {color === '#A020F0' ?<FontAwesome5 name='check' size={20} color={'#fff'}  /> : null}</TouchableOpacity>
+          <TouchableOpacity style={[styles.selectColor, { backgroundColor: '#87CEEB' }]} onPress={() => { setColor('#87CEEB') }}>
+          {color === '#87CEEB' ?<FontAwesome5 name='check' size={20} color={'#fff'}  /> : null}
+          </TouchableOpacity>
+          <TouchableOpacity style={[styles.selectColor, { backgroundColor: '#FFB6C1' }]}  onPress={() => { setColor('#FFB6C1') }}>
+          {color === '#FFB6C1' ?<FontAwesome5 name='check' size={20} color={'#fff'}  /> : null}
+          </TouchableOpacity>
+          <TouchableOpacity style={[styles.selectColor, { backgroundColor: '#DBF3FA' }]}  onPress={() => { setColor('#DBF3FA') }}>
+          {color === '#DBF3FA' ?<FontAwesome5 name='check' size={20} color={'#fff'}  /> : null}
+          </TouchableOpacity>
+          <TouchableOpacity style={[styles.selectColor, { backgroundColor: '#8EA' }]}  onPress={() => { setColor('#8EA') }}>
+          {color === '#8EA' ?<FontAwesome5 name='check' size={20} color={'#fff'}  /> : null}
+          </TouchableOpacity>
+          <TouchableOpacity style={[styles.selectColor, { backgroundColor: '#87CE' }]}  onPress={() => { setColor('#87CE') }}>
+          {color === '#87CE' ?<FontAwesome5 name='check' size={20} color={'#fff'}  /> : null}
+          </TouchableOpacity>
         </View>
 
         {/* Add to Card */}
