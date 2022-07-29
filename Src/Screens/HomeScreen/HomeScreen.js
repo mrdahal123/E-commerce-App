@@ -5,6 +5,8 @@ import Ionicons from 'react-native-vector-icons/Ionicons'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import { styles } from './Home.style'
 import { SliderBox } from "react-native-image-slider-box";
+import MyCarousel from '../../Components/MyCarousel'
+import FlatlistSlider from '../../Components/FlatlistSlider'
 // import Carousel from 'react-native-snap-carousel';
 const HomeScreen = ({ navigation }) => {
 
@@ -21,10 +23,6 @@ const HomeScreen = ({ navigation }) => {
 
 
     const SliderImage = [
-        // "https://source.unsplash.com/1024x768/?nature",
-        // "https://source.unsplash.com/1024x768/?water",
-        // "https://source.unsplash.com/1024x768/?girl",
-        // "https://source.unsplash.com/1024x768/?tree", // Network image
         require('../../../assets/images/IMAGE1.webp'), // Local
         require('../../../assets/images/IMAGE3.jpg'), // Local image
         require('../../../assets/images/IMAGE1.webp'), // Local image
@@ -80,7 +78,9 @@ const HomeScreen = ({ navigation }) => {
         <SafeAreaView style={styles.container}>
             <ScrollView showsVerticalScrollIndicator={false} nestedScrollEnabled={true}>
                 <View style={styles.header}>
-                    <Ionicons name='ios-menu-outline' size={30} />
+                    <Ionicons name='ios-menu-outline' size={30}  onPress={() => {
+                            navigation.navigate('Filters')
+                        }} />
                     <Text style={Fonts.blackColor50Bold}>Prilyn</Text>
                     <View style={styles.headerIcon}>
                         <Ionicons name='search' size={30} />
@@ -111,7 +111,9 @@ const HomeScreen = ({ navigation }) => {
 
                 {/* Carousel */}
                 <View style={styles.carousel}>
-                    <SliderBox
+                    <MyCarousel 
+                     images={SliderImage}/>
+                    {/* <SliderBox
                         images={SliderImage}
                         sliderBoxHeight={100}
                         autoplay={true}
@@ -129,30 +131,11 @@ const HomeScreen = ({ navigation }) => {
                             padding: 0,
                             margin: 0,
                         }}
-                    />
+                    /> */}
                 </View>
                 <View>
-                    <FlatList
-                        style={styles.carouselContainer}
-                        showsHorizontalScrollIndicator={false}
-                        data={carouselItems}
-                        horizontal={true}
-                        keyExtractor={({ item, index }) => index}
-                        renderItem={({ item, index }) => {
-                            return (
-                                <TouchableOpacity onPress={() => {
-                                    navigation.navigate("ProductDetails",{
-                                        data:item
-                                    })
-                                }}>
-                                    <Image source={item.image} style={{ width: 250, height: 300, resizeMode: 'cover', marginHorizontal: 5 }} />
-                                    <Text style={[Fonts.blackColor30Regular, { textAlign: 'center', marginTop: 10 }]}>{item.title}</Text>
-                                    <Text style={[Fonts.textCenter, { marginVertical: 5 }]}>
-                                        <Text style={{ color: Fonts.colors.themeColor }}>₹</Text>{item.price}</Text>
-                                </TouchableOpacity>
-                            )
-                        }}
-                    />
+                <FlatlistSlider sliderImage={SliderImage}  />
+                   
                 </View>
 
                 <View style={styles.header}>
@@ -193,7 +176,6 @@ const HomeScreen = ({ navigation }) => {
                 <Text style={Fonts.blackColor50Bold}>Wardrobe Checklist</Text>
                 <View style={styles.wardopContainer}>
                     <FlatList
-                  
                         showsHorizontalScrollIndicator={false}
                         data={carouselItems}
                         numColumns={3}

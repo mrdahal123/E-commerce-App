@@ -62,6 +62,16 @@ const Brands = ({ navigation }) => {
         //     }
         // })
 
+        const Item = ({ i, scrollX });
+         {
+            const scale = scrollX.interpolate({
+                inputRange: [-offset + i * offset, i * offset, offset + i * offset],
+                outputRange: [0.75, 1, 0.75],
+            });
+            return <Animated.View style={[styles.item, { transform: [{ scale }] }]} />;
+        }
+        
+
     }
     return (
         <SafeAreaView style={styles.container}>
@@ -181,3 +191,28 @@ const styles = StyleSheet.create({
         borderWidth: 1
     }
 })
+
+
+ // <FlatList
+                    //     style={styles.carouselContainer}
+                    //     showsHorizontalScrollIndicator={false}
+                    //     data={carouselItems}
+                    //     onEndReachedThreshold={0.2}
+                    //     onEndReached={onEndReached}
+                    //     horizontal={true}
+                    //     keyExtractor={({ item, index }) => index}
+                    //     renderItem={({ item, index }) => {
+                    //         return (
+                    //             <TouchableOpacity onPress={() => {
+                    //                 navigation.navigate("ProductDetails",{
+                    //                     data:item
+                    //                 })
+                    //             }}>
+                    //                 <Image source={item.image} style={{ width: 250, height: 300, resizeMode: 'cover', marginHorizontal: 5 }} />
+                    //                 <Text style={[Fonts.blackColor30Regular, { textAlign: 'center', marginTop: 10 }]}>{item.title}</Text>
+                    //                 <Text style={[Fonts.textCenter, { marginVertical: 5 }]}>
+                    //                     <Text style={{ color: Fonts.colors.themeColor }}>₹</Text>{item.price}</Text>
+                    //             </TouchableOpacity>
+                    //         )
+                    //     }}
+                    // />

@@ -135,24 +135,24 @@ const ProductDetails = ({ navigation, route }) => {
         <Text style={[Fonts.FontColor16Bold, { marginVertical: 15 }]}>Select Color</Text>
         <View style={styles.header}>
           <TouchableOpacity style={styles.selectColor} onPress={() => { setColor('#fff') }}>
-          {color === '#fff' ?<FontAwesome5 name='check' size={20} color={'#A020F0'}  /> : null}
+            {color === '#fff' ? <FontAwesome5 name='check' size={20} color={'#A020F0'} /> : null}
           </TouchableOpacity>
           <TouchableOpacity style={[styles.selectColor, { backgroundColor: '#A020F0' }]} onPress={() => { setColor('#A020F0') }}>
-          {color === '#A020F0' ?<FontAwesome5 name='check' size={20} color={'#fff'}  /> : null}</TouchableOpacity>
+            {color === '#A020F0' ? <FontAwesome5 name='check' size={20} color={'#fff'} /> : null}</TouchableOpacity>
           <TouchableOpacity style={[styles.selectColor, { backgroundColor: '#87CEEB' }]} onPress={() => { setColor('#87CEEB') }}>
-          {color === '#87CEEB' ?<FontAwesome5 name='check' size={20} color={'#fff'}  /> : null}
+            {color === '#87CEEB' ? <FontAwesome5 name='check' size={20} color={'#fff'} /> : null}
           </TouchableOpacity>
-          <TouchableOpacity style={[styles.selectColor, { backgroundColor: '#FFB6C1' }]}  onPress={() => { setColor('#FFB6C1') }}>
-          {color === '#FFB6C1' ?<FontAwesome5 name='check' size={20} color={'#fff'}  /> : null}
+          <TouchableOpacity style={[styles.selectColor, { backgroundColor: '#FFB6C1' }]} onPress={() => { setColor('#FFB6C1') }}>
+            {color === '#FFB6C1' ? <FontAwesome5 name='check' size={20} color={'#fff'} /> : null}
           </TouchableOpacity>
-          <TouchableOpacity style={[styles.selectColor, { backgroundColor: '#DBF3FA' }]}  onPress={() => { setColor('#DBF3FA') }}>
-          {color === '#DBF3FA' ?<FontAwesome5 name='check' size={20} color={'#fff'}  /> : null}
+          <TouchableOpacity style={[styles.selectColor, { backgroundColor: '#DBF3FA' }]} onPress={() => { setColor('#DBF3FA') }}>
+            {color === '#DBF3FA' ? <FontAwesome5 name='check' size={20} color={'#fff'} /> : null}
           </TouchableOpacity>
-          <TouchableOpacity style={[styles.selectColor, { backgroundColor: '#8EA' }]}  onPress={() => { setColor('#8EA') }}>
-          {color === '#8EA' ?<FontAwesome5 name='check' size={20} color={'#fff'}  /> : null}
+          <TouchableOpacity style={[styles.selectColor, { backgroundColor: '#8EA' }]} onPress={() => { setColor('#8EA') }}>
+            {color === '#8EA' ? <FontAwesome5 name='check' size={20} color={'#fff'} /> : null}
           </TouchableOpacity>
-          <TouchableOpacity style={[styles.selectColor, { backgroundColor: '#87CE' }]}  onPress={() => { setColor('#87CE') }}>
-          {color === '#87CE' ?<FontAwesome5 name='check' size={20} color={'#fff'}  /> : null}
+          <TouchableOpacity style={[styles.selectColor, { backgroundColor: '#87CE' }]} onPress={() => { setColor('#87CE') }}>
+            {color === '#87CE' ? <FontAwesome5 name='check' size={20} color={'#fff'} /> : null}
           </TouchableOpacity>
         </View>
 
@@ -171,72 +171,3 @@ const ProductDetails = ({ navigation, route }) => {
 }
 
 export default ProductDetails
-
-// const styles = StyleSheet.create({
-//   container: {
-//     backgroundColor: '#fff',
-//     flex: 1,
-//     padding: 15,
-
-//   },
-//   header: {
-//     width: '100%',
-//     flexDirection: 'row',
-//     justifyContent: 'space-between',
-//     alignItems: 'center',
-
-//   },
-//   CardImage: {
-//     width: '100%',
-//     height: 250,
-//     alignSelf: 'center',
-//     borderRadius: 8,
-//     marginVertical: 20,
-
-//   },
-//   image: {
-//     width: '100%',
-//     height: '100%',
-//     resizeMode: 'center',
-//     borderRadius: 10,
-//   },
-//   filterButton: {
-//     padding: 10,
-//     minWidth: 50,
-//     borderRadius: 8,
-//     backgroundColor: '#fff',
-//     textAlign: 'center',
-//     alignItems: 'center',
-//     justifyContent: 'center',
-//     marginHorizontal: 5,
-//     borderWidth: 0.5,
-//   },
-//   selectColor: {
-//     width: 50,
-//     height: 50,
-//     backgroundColor: '#fff',
-//     borderWidth: 0.5,
-//     borderColor: 'Fonts.Colors.themeColor',
-//     borderRadius: 20,
-//     margin: 5,
-//     opacity: 0.6,
-//   },
-//   fullWidthButton: {
-//     width: '100%',
-//     padding: 20,
-//     alignItems: 'center',
-//     justifyContent: 'center',
-//     backgroundColor: '#000',
-//     marginVertical: 30,
-//     borderRadius: 10,
-//   },
-//   hr: {
-//     width: 100,
-//     borderRadius: 8,
-//     height: 5,
-//     backgroundColor: Fonts.colors.gray,
-//     justifyContent: 'center',
-//     alignSelf: 'center',
-//     marginVertical: 10,
-//   }
-// })

@@ -1,16 +1,16 @@
-import { StyleSheet } from "react-native"
+
+import { Animated, Dimensions, ScrollView, StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
     container: {
         backgroundColor: '#fff',
         flex: 1,
-        padding: 15,
-
     },
     header: {
         width: '100%',
         flexDirection: 'row',
         justifyContent: 'space-between',
+        paddingHorizontal:15,
         alignItems: 'center',
         alignSelf: 'center',
     },
@@ -61,10 +61,10 @@ export const styles = StyleSheet.create({
     },
     wardopContainer: {
         width: '100%',
-        paddingVertical: 10,
+        padding: 15,
         flexDirection: 'row',
         alignSelf:'center',
         alignItems:'center',
         justifyContent: 'space-between',
-    }
+    },
 })
